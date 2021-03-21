@@ -76,10 +76,55 @@
 
 
 ```SAS
+* SAS Recipe: hello-world ;
+/*
+Scenario: Printing to the SAS log.
+
+Approach: Use a null data step and put statement to write to the log
+
+Recipe <with everything in square brackets to be filled in for actual use>:
+
+* original recipe;
+data _null_;
+    put "<message>";
+run;
+*/
 
 
-[place your SAS recipe explorations here, with one code fence per recipe, and delete this line]
+* Example;
 
+data _null_;
+    put "Hello, World";
+run;
+
+
+
+* SAS Recipe: fizz-buzz ;
+/*
+Scenario: Solve a simplified version of the FizzBuzz Challenge
+
+Approach: Use a null data step and business logic to write to the log
+
+* original recipe;
+data _null_;
+    do i = 1 to 100;
+        if mod(i,3) = 0 then put 'Fizz';
+        else if mod(i, 5) = 0 then put 'Buzz';
+        else put i=;
+    end;
+run;
+*/
+
+
+* Example;
+data _null_;
+    do i = 1 to 100;
+        if mod(i,15) = 0 then put "Fizz Buzz";  /*print FizzBuzz if divisible by 15*/
+        else if mod(i,3) = 0 then put "Fizz";   /*print Fizz if divisible by 3*/
+        else if mod(i, 5) = 0 then put "Buzz";  /*print Buzz if divisible by 5*/
+        else put i=;                            /*print value otherwise*/
+    end;
+run;
 
 
 ```
