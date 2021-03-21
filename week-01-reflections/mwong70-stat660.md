@@ -92,10 +92,19 @@ run;
 
 
 * Example;
-
 data _null_;
     put "Hello, World";
 run;
+
+
+* modified to print the content of a macro variable;
+%let className = STAT660;
+%put Hello &className!;
+/* data step equivalent of the %put 
+data _null_;
+    put "Hello, &className.!";
+run;
+*/
 
 
 
@@ -125,6 +134,24 @@ data _null_;
         else put i=;                            /*print value otherwise*/
     end;
 run;
+
+
+* modified to print the content of a macro variable;
+%let mod1 = 15;
+%let mod1msg = FizzBuzz;
+%let mod2 = 3;
+%let mod2msg = Fizz;
+%let mod3 = 5;
+%let mod3msg = Buzz;
+data _null_;
+    do i = 1 to 100;
+	    if mod(i,&mod1.) = 0 then put "&mod1msg.";
+		else if mod(i,&mod2.) = 0 then put "Fizz";
+		else if mod(i,&mod3.) = 0 then put "Buzz";
+		else put i=;
+	end;
+run;
+
 
 
 ```
