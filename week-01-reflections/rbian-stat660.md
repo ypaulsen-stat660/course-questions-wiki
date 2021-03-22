@@ -8,58 +8,58 @@
 
 
 [Course Structure Quiz, Problem 2]
-* Question (rbian-stat660): Is the requirement to complete 6 of 7 forum posts to allow people to "slack off" at the end of the academic term, or is it to accommodate students enrolling in the course late, or both?
-* Answer (rbian-stat660): Both; however, students are encouraged to complete all assignments as written, even if they have no impact on their course grade.
+* Question (rbian-stat660): Do we need to complete forum posts every week?
+* Answer (rbian-stat660): No, at least 6 forum posts need to be completed.
 
 
 [Course Structure Quiz, Problem 3]
-* Question (rbian-stat660): Is the requirement to complete 6 of 7 weekly reflections to allow people to "slack off" at the end of the academic term, or is it to accommodate students enrolling in the course late, or both?
-* Answer (rbian-stat660): Both; however, students are encouraged to complete all assignments as written, even if they have no impact on their course grade.
+* Question (rbian-stat660): Can some weekly reflections be skipped and still get a full credit?
+* Answer (rbian-stat660): No, not like the forum posts, all the weekly reflections need to be submitted.
 
 
 [Course Structure Quiz, Problem 4]
-* Question (rbian-stat660): How will code reviews for projects be conducted? Will they involved comments on code in GitHub, meetings with the instructor, or both?
-* Answer (rbian-stat660): Both; Code Reviews will involve 1:1 meetings with the instructor held through Google Hangouts, during which project code will discussed and commented on.
+* Question (rbian-stat660): Is the project a team-based problem?
+* Answer (rbian-stat660): Yes, but everyone should contribute to the project.
 
 
 [Course Structure Quiz, Problem 5]
-* Question (rbian-stat660): How similar to Weekly Reflection problems will final exam problems be? In other words, if I want to best prepare for the final exam throughout the course, should I primarily focus on thoroughly understanding weekly reflection problems?
-* Answer (rbian-stat660): The best way to prepare for the Final Exam is to work through every assigned Weekly Reflection Problem and to develop an understanding of all concepts involved to the point that the problems can be thoroughly answered without consulting reference materials.
+* Question (rbian-stat660): How can we be well-prepared for the final exam?
+* Answer (rbian-stat660): We need to understand all the weekly reflection problems including the concepts involved to the that.
 
 
 [Course Structure Quiz, Problem 6]
-* Question (rbian-stat660): Is the ability to earn five total achievements at all related to the common employee rating scale of 0-5, with 5 being the highest possible level of performance?
+* Question (rbian-stat660): Are all the five achievements important to our future work?
 * Answer (rbian-stat660): Yes, I think so.
 
 
 [Course Structure Quiz, Problem 7]
-* Question (rbian-stat660): What's the intention of encouraging resubmission of incomplete assignments? Is it to encourage students to focus on iteratively creating projects that can be added to work-sample portfolios?
-* Answer (rbian-stat660): Yes. I think all assignments are intended to help students better understand what we have learnt and can create a complete project used for work-sample portfolios.
+* Question (rbian-stat660): If we can not complete assignments before deadline, what is the best way to get good course grades?
+* Answer (rbian-stat660): We can just submit what we have by a deadline, and then use resubmissions to work towards meeting all assignment expectations.
 
 
 [Course Structure Quiz, Problem 8]
-* Question (rbian-stat660): Why does the instructor give extra credit for catching mistakes he's made? Is it to reassure students that everyone makes mistakes, or help him proofread his course materials, or both?
-* Answer (rbian-stat660): Both.
+* Question (rbian-stat660): Is extra credit a good way to create a more interactive class?
+* Answer (rbian-stat660): Yes, erveryone is encouraged to make suggestions.
 
 
 [Course Structure Quiz, Problem 9]
-* Question (rbian-stat660): Instead of a carrier pigeon, what about an unladen swallow?
-* Answer (rbian-stat660): An African swallow maybe, but not a European swallow.
+* Question (rbian-stat660): is using Slack Desktop necessary to this course?
+* Answer (rbian-stat660): Yes, Slack workspace is an important place where we can work with each other.
 
 
 [Course Structure Quiz, Problem 10]
-* Question (rbian-stat660): What does it mean to check GitHub daily? Does this mean accessing the class GitHub organization daily to check in on the status of the repos I might be asked to contribute to?
-* Answer (rbian-stat660): Yes.
+* Question (rbian-stat660): If most important messages are sent through Slack workspace, can we ignore some other technologies like CSUEB-provided Horizon Email?
+* Answer (rbian-stat660): No, all the four technologies need to be check every day.
 
 
 [hello-world Week 1 SAS Recipe]
-* Question (rbian-stat660): Is there a way of having SAS print to a different output destination than the log?
-* Answer (rbian-stat660): Yes. We can use the PRINTTO procedure, route output to an XPRINTER device or to a terminal.
+* Question (rbian-stat660): Is a indent necessary in SAS programming even though sometimes it won't influence the outputs?
+* Answer (rbian-stat660): Yes, we should always keep an eye on it.
 
 
 [fizz-buzz Week 1 SAS Recipe]
-* Question (rbian-stat660): Is the mod function at all related to how clocks work, with hours counting from 1 to 12, and then starting back at 1 again?
-* Answer (rbian-stat660): Yes. It works like a 12 hour clock.
+* Question (rbian-stat660): Can we add additional if-then statements under the esisting if-then command?
+* Answer (rbian-stat660): Yes.
 
 
 ***
@@ -97,22 +97,28 @@ run;
 data _null_;
     do i = 1 to 100;
         if mod(i,3) = 0 then put 'Fizz';
-        else if mod(i, 5) = 0 then put 'Buzz';
+        else if mod(i,5) = 0 then put 'Buzz';
         else put i=;
     end;
 run;
 
 
-* modified to use macro variables to parametrize what's printed when;
-* note the need to switch to double-quote for macro variables to render;
-%let mod1 = 3;
-%let mod1msg = Fizz;
-%let mod2 = 5;
-%let mod2msg = Buzz;
+* modified code so that both first name and last name are printed when a number is divisible by both three and five;
+* try to change the order of the if-then statements to optimize and simplify codes;
 data _null_;
     do i = 1 to 100;
-        if mod(i,& mod1.) = 0 then put "&mod1msg.";
-        else if mod(i, &mod2.) = 0 then put "&mod1msg.";
+        if mod(i, 3) = 0 and mod(i, 5) ^= 0 then put "Ran";
+        else if mod(i, 5) = 0 and mod(i, 3) ^= 0 then put "Bian";
+        else if mod(i, 3) = 0 and mod(i, 5) = 0 then put "Ran Bian";
+        else put i=;
+    end;
+run;
+
+data _null_;
+    do i = 1 to 100;
+        if mod(i, 3) = 0 and mod(i, 5) = 0 then put "Ran Bian";
+        else if mod(i, 5) = 0 then put "Bian";
+        else if mod(i, 3) = 0 then put "Ran";
         else put i=;
     end;
 run;
