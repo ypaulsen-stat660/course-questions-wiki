@@ -37,7 +37,6 @@
 * Question (slin51-660): Why does the instructor give extra credit for typos or constructive feedback related to clarity?
 
 
-
 [Course Structure Quiz, Problem 9]
 * Question (slin51-660): Are Slack notifications linked to the instructor's email?
 
@@ -55,12 +54,43 @@
 # Recipes Exploration Results
 
 
+```
+* Recipe: hello-world ;
 
-```SAS
+* original recipe;
+data _null_;
+    put 'Hello, World!';
+run;
+
+* Question (slin51-stat660): Do all statements end with a semicolon?
+
+* modified text output;
+data _null_;
+    put 'Hello, STAT660 class.';
+run;
 
 
-[place your SAS recipe explorations here, with one code fence per recipe, and delete this line]
 
+* Recipe: fizz-buzz ;
 
+* original recipe;
+data _null_;
+    do i = 1 to 100;
+        if mod(i,3) = 0 then put 'Fizz';
+        else if mod(i, 5) = 0 then put 'Buzz';
+        else put i=;
+    end;
+run;
+
+* Question (slin51-stat660): Are there for loops in SAS?
+
+* modified dividing factor;
+data _null_;
+    do i = 1 to 100;
+        if mod(i,8) = 0 then put 'Fizz';
+        else if mod(i, 4) = 0 then put 'Buzz';
+        else put i=;
+    end;
+run;
 
 ```
