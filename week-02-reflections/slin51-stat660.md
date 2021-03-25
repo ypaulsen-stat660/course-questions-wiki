@@ -54,11 +54,66 @@
 
 
 
-```SAS
+```
+* Recipe: basic-load-remote-excel-file ;
 
+filename tempfile TEMP;
+proc http
+    method="get" 
+    url="https://tinyurl.com/stat660-sat15" 
+    out=tempfile
+    ;
+run;
+proc import
+        file=tempfile
+        out=sat15_raw
+        dbms=xls; 
+run;
+filename tempfile clear;
 
-[place your SAS recipe explorations here, with one code fence per recipe, and delete this line]
+```
 
+* Question (slin51-stat660): Why is the semicolon on a separate line on its own?
 
 
 ```
+
+* Recipe: advanced-load-remote-excel-file ;
+
+%macro loadDataIfNotAlreadyAvailable(dsn,url,fileType);
+	%put &=dsn;
+	%put &=url;
+	%put &=filetype;
+	%if
+		%sysfunc(exist(&dsn.)) = 0
+	%then
+		%do;
+			%put Loading dataset &dsn. over the wire now...;
+			filename tempfile TEMP;
+			proc http
+				method="get"
+				url="&url."
+				out=tempfile
+				;
+			run;
+			proc import
+				file=tempfile
+				out=&dsn.
+				dbms=&filetype.;
+			run;
+			filename tempfile clear;
+		%end;
+	%else
+		%do;
+			%put Dataset &dsn. already exists. Please delete and try again.;
+		%end;
+%mend;
+%loadDataIfNotAlreadyAvailable(
+	sat15_raw,
+	https://tinyurl.com/stat660-sat15,
+	xls
+)
+
+```
+* Question (slin51-stat660): What does %mend do?
+
