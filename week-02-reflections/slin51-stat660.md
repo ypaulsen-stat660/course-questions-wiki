@@ -24,30 +24,26 @@
 
 
 [Textbook Chapter 9, Problem 1]
-* Question (slin51-stat660): Since there are 5 total achievements, why is an A earned for all possible achievements and an A- for 3 achievements? What about for 4 achievements?
-
+* Question (slin51-stat660): What does a do action after the IF-THEN statement do?
 
 
 [Textbook Chapter 9, Problem 2]
-* Question (slin51-stat660): Can late submissions be counted towards course grades at the instructor's discretion?
-* Answer (slin51-stat660): Yes, an example is the current "grading amnesty" currently in place.
-
+* Question (slin51-stat660): Regardless of the logical operator, are comparisons in parentheses always evaluated first?
 
 [Textbook Chapter 9, Problem 3]
-* Question (slin51-stat660): Why does the instructor give extra credit for typos or constructive feedback related to clarity?
+* Question (slin51-stat660): Will adding spaces on either side of the equal sign in the comparison change the evaluation of the statement?
 
 
 [Textbook Chapter 9, Problem 4]
-* Question (slin51-stat660): Are Slack notifications linked to the instructor's email?
-
+* Question (slin51-stat660): What is an assignment statement?
 
 
 [Textbook Chapter 9, Problem 5]
-* Question (slin51-stat660): If a student were to only check one technology, which would be the most important one to check?
+* Question (slin51-stat660): Why is the value for code surrounded in quotes? Is it because code='1' and code='2' values are not numeric?
 
 
 [Textbook Chapter 9, Problem 8]
-* Question (slin51-stat660): Why does the instructor give extra credit for typos or constructive feedback related to clarity?
+* Question (slin51-stat660): Why does SAS default to setting the value length to the first reference in the DATA step?
 
 
 ***
