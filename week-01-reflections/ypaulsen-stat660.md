@@ -4,6 +4,7 @@
 [Course Structure Quiz, Problem 1]
 * Question (ypaulsen-stat6660): How many week 1 setup components did I complete? 
 
+This is the final one! 
 
 [Course Structure Quiz, Problem 2]
 * Question (ypaulsen-stat6660): Are R blogs allowed? 
