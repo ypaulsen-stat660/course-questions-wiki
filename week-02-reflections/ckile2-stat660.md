@@ -3,7 +3,7 @@
 
 
 [Chapter 4 Quiz, Problem 1]
-* Question (ckile2-stat660):When you assign a libref by using a LIBNAME statement does it have to be in quotation marks too?
+* Question (ckile2-stat660):When you assign a "libref" by using a LIBNAME statement does it have to be in quotation marks too?
 
 
 
