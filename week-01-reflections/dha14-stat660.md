@@ -47,8 +47,13 @@
 * Question (dha14-stat6660): What are the technologies used for STAT 660?
 * Answer (dha14-stat6660): The technologies used in this course  are GitHub, Blackboard, BayCloud, and Slack. 
 
+[Recipe Hello-world]
+* Question (dha14-stat6660): Why does data null have underscore before and after its name?
+* Answer (dha14-stat6660): the keyword _null_ defines a dataset with no observations and no variables, whereas null with no underscores around it is a dataset with observations and variables. 
 
-
+[Recipe Fizz Buzz]
+* Question (dha14-stat6660): What does function mod do?
+* Answer (dha14-stat6660): The MOD function returns the remainder from the division of a by q.
 ***
 
 
@@ -58,24 +63,6 @@
 
 
 ```SAS
-
-
-*******************************************************************************;
-**************** 80-character banner for column width reference ***************;
-* (set window width to banner width to calibrate line length to 80 characters *;
-*******************************************************************************;
-
-
-*******************************************************************************;
-* SAS Recipe: hello-world ;
-*******************************************************************************;
-
-/*
-Scenario: Printing to the SAS log.
-
-Approach: Use a null data step and put statement to write to the log
-
-Recipe <with everything in square brackets to be filled in for actual use>:
 
 data _null_;
     put "Hello World";
@@ -93,19 +80,3 @@ data _null_;
 	end; 
 run; 
 
-
-/*
-Notes:
-(1) In this example, single-quotes have been used to delimit the string literal
-'Hello, World!', meaning we know the string is everything between the opening
-and closing single-quote marks. However, the recipe used double-quote marks. In
-general, either single-quotes or double-quotes can be used to delimit SAS string
-literals, but double-quotes should be used whenever so-called macro variables
-are included in string literals, as we'll see later. (For now, just remember
-that SAS treats single- and double-quotes differently for something called
-macros.)
-*/
-
-
-
-```
