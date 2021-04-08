@@ -58,65 +58,56 @@
 
 
 ```
-* Recipe: basic-load-remote-excel-file ;
+* Recipe: printing-a-dataset ;
 
-filename tempfile TEMP;
-proc http
-    method="get" 
-    url="https://tinyurl.com/stat660-sat15" 
-    out=tempfile
+proc print data=sashelp.iris(obs=20);
+    id SepalLength SepalWidth; 
+    var Species;
+run;
+
+
+```
+
+* Question (slin51-stat660): Can you also specify in the options that obs=20?
+
+
+```
+
+* Recipe: sorting-a-dataset ;
+
+proc sort
+    	data=sashelp.iris
+	out=Work.iris_sorted
     ;
+    by
+        descending SepalLength
+	SepalWidth
+    ;    
 run;
-proc import
-        file=tempfile
-        out=sat15_raw
-        dbms=xls; 
+
+```
+
+* Question (slin51-stat660): Why is there a Work. in front of the iris_sorted?
+
+
+
+```
+* Recipe: checking-for-duplicates ;
+
+proc sort
+    	nodupkey
+    	data=sashelp.iris
+	out=_null_
+    ;
+    by
+        SepalLength
+	SepalWidth
+    ;    
 run;
-filename tempfile clear;
-
-```
-
-* Question (slin51-stat660): Why is the semicolon on a separate line on its own?
 
 
 ```
 
-* Recipe: advanced-load-remote-excel-file ;
+* Question (slin51-stat660): What does the output _null_ mean?
 
-%macro loadDataIfNotAlreadyAvailable(dsn,url,fileType);
-	%put &=dsn;
-	%put &=url;
-	%put &=filetype;
-	%if
-		%sysfunc(exist(&dsn.)) = 0
-	%then
-		%do;
-			%put Loading dataset &dsn. over the wire now...;
-			filename tempfile TEMP;
-			proc http
-				method="get"
-				url="&url."
-				out=tempfile
-				;
-			run;
-			proc import
-				file=tempfile
-				out=&dsn.
-				dbms=&filetype.;
-			run;
-			filename tempfile clear;
-		%end;
-	%else
-		%do;
-			%put Dataset &dsn. already exists. Please delete and try again.;
-		%end;
-%mend;
-%loadDataIfNotAlreadyAvailable(
-	sat15_raw,
-	https://tinyurl.com/stat660-sat15,
-	xls
-)
-
-```
-* Question (slin51-stat660): What does %mend do?
 
