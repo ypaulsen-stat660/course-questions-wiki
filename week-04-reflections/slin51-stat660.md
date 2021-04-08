@@ -38,15 +38,15 @@
 
 
 [Textbook Chapter 7, Problem 7]
-* Question (slin51-stat660): 
+* Question (slin51-stat660): Can new columns be added to the beginning of the data set instead of the end?
 
 
 [Textbook Chapter 7, Problem 9]
-* Question (slin51-stat660): 
+* Question (slin51-stat660):  What does the length function do?
 
 
 [Textbook Chapter 9, Problem 11]
-* Question (slin51-stat660): 
+* Question (slin51-stat660): Are observations initially set to missing and then with each iteration, the observations are filled in?
 
 
 ***
