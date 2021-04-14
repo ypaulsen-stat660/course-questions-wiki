@@ -52,52 +52,77 @@
 
 
 ```
-* Recipe: printing-a-dataset ;
+* Recipe: summarizing-qualitative-values;
 
-proc print data=sashelp.iris(obs=20);
-    id SepalLength SepalWidth; 
-    var Species;
-run;
-
-
-```
-
-* Question (slin51-stat660): Can you also specify in the options that obs=20?
-
-
-```
-
-* Recipe: sorting-a-dataset ;
-
-proc sort
-    	data=sashelp.iris
-	out=Work.iris_sorted
+proc freq
+        nlevels
+        data=sashelp.iris
     ;
-    by
-        descending SepalLength
-	SepalWidth
+    table
+        Species*PetalWidth
+        / missing norow nocol nopercent
     ;    
 run;
 
-```
-
-* Question (slin51-stat660): Why is there a Work. in front of the iris_sorted?
-
-
 
 ```
-* Recipe: checking-for-duplicates ;
 
-proc sort
-    	nodupkey
+* Question (slin51-stat660): What does nlevels do?
+
+
+```
+
+* Recipe: summarizing-quantitative-values;
+
+proc means
     	data=sashelp.iris
-	out=_null_
+	maxdec=1
+	missing
     ;
-    by
+    class
+        Species
+        PetalWidth
+    ; 
+    var
         SepalLength
-	SepalWidth
+        SepalWidth
+    ;
+run;
+
+```
+
+* Question (slin51-stat660): Why is there a missing in proc means?
+
+
+
+```
+* Recipe: temporarily-binning-values ;
+
+proc format;
+    value $Species_bins
+    	"Versicolor","Virginica"="Versicolor & Virginica (combined)"
+    	other="Not Versicolor or Virginica"
+    ;
+    value $PetalWidth_bins
+        low-9="Small Petal Width"
+        10-18="Medium Petal Width"
+        19-high="Large Petal Width"
     ;    
 run;
+proc freq
+        nlevels
+        data=sashelp.iris
+    ;
+    table
+        Species*PetalWidth
+        / missing list
+    ;
+    format
+        Species $Species_bins.
+        PetalWidth PetalWidth_bins.
+    ;
+run;
+
 
 
 ```
